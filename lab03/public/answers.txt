@@ -1,0 +1,13 @@
+3.1 A) Node.js is a tool used to help build web applications with a heavy I/O base,
+while Express.js is a framework that is built on top of Node that essentailly
+makes Node easier to work with.
+
+3.1 B) The package.json file contains data about the program, as well as what
+dependencies there are within the program.
+
+
+3.2 A) These files are static because once they are loaded they should not be changed.
+
+3.2 B) The server does continue to server up the Hello World message when there user
+is at the root path, and has not specified a directory. This is because in the js file
+we are calling a get on the root and sending the Hello World message there.
