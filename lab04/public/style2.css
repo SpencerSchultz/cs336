@@ -1,0 +1,32 @@
+body {counter-reset: newnum;}
+
+h3 {
+	border-top: 1px solid gray;
+	padding-top: 5px;
+}
+/* numbered paragraphs */
+h3.numbered {counter-reset: mynum;}
+h3:before {
+	counter-increment: newnum;
+	content: "(" counter(newnum, upper-alpha) ") ";
+}
+
+ul {border: 5px solid #3AB8D1;}
+
+li {
+  list-style: lower-roman;
+  margin-bottom: 8px;
+  }
+ 
+p.numbered:before {
+  content: counter(mynum) ": ";
+  counter-increment: mynum;
+  font-weight: bold;
+}
+
+#fixed-pin {
+  position:fixed;
+  top: 2px;
+  right: 15px;
+
+}

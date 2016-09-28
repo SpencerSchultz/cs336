@@ -1,0 +1,77 @@
+/*** CSS Tutorial: Color page ***/
+
+
+
+/* page font */
+body {
+  font: 16px "Comic Sans MS", cursive;
+  background: url("Blue-rule.png");
+}
+
+/* paragraphs */
+p {
+  color: #0000FF;
+}
+#first {
+  font-style: italic;
+}
+
+/* initial letters */
+strong {
+  background-color: #ddf; 
+  color: #FF0000;
+  font: 200% serif;
+}
+
+.spinach {
+  color: #228B22;
+  background-color: #ddf;
+}
+
+p:before {content: url("Yellow-pin.png");}
+
+
+
+
+
+
+/* old code before color page, just for reference
+strong {color: red; font-size: 32px; font-family: serif;}
+//.carrot {color: orange;}
+.spinach {color: green;}
+#first {font-style: italic;}
+p {color: blue;}
+
+//font rule to make font in the body helvetica (if avaliable)
+body {
+font: 16px "helvetica", "arial", sans-seif;
+}
+*/
+
+
+
+/* Below is all for doc4.html during the tutorial
+a.homepage:link, a.homepage:visited {
+  padding: 1px 10px 1px 10px;
+  color: #fff;
+  background: #555;
+  border-radius: 3px;
+  border: 1px outset rgba(50,50,50,.5);
+  font-family: georgia, serif;
+  font-size: 14px;
+  font-style: italic;
+  text-decoration: none;
+}
+
+a.homepage:hover, a.homepage:focus, a.homepage:active {
+  background-color: #666;
+}
+
+div.menu-bar ul ul {
+  display: none;
+}
+
+div.menu-bar li:hover > ul {
+  display: block;
+}s
+*/
