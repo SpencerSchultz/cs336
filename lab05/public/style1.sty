@@ -1,0 +1,91 @@
+/* I like brackets and semi-colons, but I'll compromise and just take out semicolons */
+
+//This doesn't actually help much but is just for practice, 
+//I didn't find much that I could replace to make things more DRY in my simple implementation.
+absoluteHeight() {
+	min-height: arguements
+	max-height: arguements
+}
+
+body {
+        font: 24px Helvetica
+        background: #999999
+    
+
+    #main {
+        min-height: 500px
+        margin: 0px
+        padding: 0px
+        display: flex
+        flex-flow: row
+    }
+    
+    #main > article {
+        padding: 15px
+        newBorder: 1px solid black
+        background: #dddd88
+	flex: 3 1 60%
+	order: 2
+    }
+    
+    #main > nav {
+    	text-align: right
+    	padding: 15px
+	background: #ccccff
+	flex: 1 6 20%
+	order: 1
+    }
+  
+    #main > aside {
+	text-align: center
+	font-style: italic
+        padding: 15px
+        background: #ccccff
+        flex: 1 6 20%
+        order: 3
+    }
+ 
+    header {
+	line-height: 100px
+	vertical-align: middle
+	font-weight: bold
+	font-size: 150%
+        display: block
+        padding: 5px
+        min-height: 100px
+        background: #ffeebb
+    }
+
+    footer {
+	line-height: 50px
+	vertical-align: middle
+        display: block
+        padding: 15px
+        min-height: 100px
+        background: #ffeebb
+    }
+
+    #main > nav, #main > article, #main > aside, header, footer {
+	border: 2px solid black
+    }
+ 
+    /* Too narrow to support three columns */
+    @media all and (max-width: 640px) {
+        #main, #page {
+            flex-direction: column
+        }
+
+         #main > nav, #main > article, #main > aside {
+        /* Return them to document order */
+            order: 0
+        }
+  
+        #main > nav, #main > aside, header, footer {
+            absoluteHeight(100px)
+        }
+
+	#main > nav, #main > aside {
+	    text-align: left
+	}   
+    }
+}

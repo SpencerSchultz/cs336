@@ -1,0 +1,83 @@
+/* I like brackets and semi-colons, but I'll compromise and just take out semicolons */
+body {
+  font: 24px Helvetica;
+  background: #999;
+/* Too narrow to support three columns */
+}
+body #main {
+  min-height: 500px;
+  margin: 0px;
+  padding: 0px;
+  display: flex;
+  flex-flow: row;
+}
+body #main > article {
+  padding: 15px;
+  newBorder: 1px solid #000;
+  background: #dd8;
+  flex: 3 1 60%;
+  order: 2;
+}
+body #main > nav {
+  text-align: right;
+  padding: 15px;
+  background: #ccf;
+  flex: 1 6 20%;
+  order: 1;
+}
+body #main > aside {
+  text-align: center;
+  font-style: italic;
+  padding: 15px;
+  background: #ccf;
+  flex: 1 6 20%;
+  order: 3;
+}
+body header {
+  line-height: 100px;
+  vertical-align: middle;
+  font-weight: bold;
+  font-size: 150%;
+  display: block;
+  padding: 5px;
+  min-height: 100px;
+  background: #feb;
+}
+body footer {
+  line-height: 50px;
+  vertical-align: middle;
+  display: block;
+  padding: 15px;
+  min-height: 100px;
+  background: #feb;
+}
+body #main > nav,
+body #main > article,
+body #main > aside,
+body header,
+body footer {
+  border: 2px solid #000;
+}
+@media all and (max-width: 640px) {
+  body #main,
+  body #page {
+    flex-direction: column;
+  }
+  body #main > nav,
+  body #main > article,
+  body #main > aside {
+/* Return them to document order */
+    order: 0;
+  }
+  body #main > nav,
+  body #main > aside,
+  body header,
+  body footer {
+    min-height: arguements;
+    max-height: arguements;
+  }
+  body #main > nav,
+  body #main > aside {
+    text-align: left;
+  }
+}
