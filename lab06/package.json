@@ -1,0 +1,15 @@
+{
+  "name": "lab03",
+  "version": "1.0.0",
+  "description": "lab03",
+  "main": "lab03.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "author": "srs27",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
+}
