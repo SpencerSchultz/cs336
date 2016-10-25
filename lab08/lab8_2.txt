@@ -1,0 +1,27 @@
+A)  1. The UI is composable because it is made up of components which can be
+        easily reused and switched around in a larger structure to make just
+        the type of UI that is wanted. This means that one can use these components
+        to create a UI, and seemingly work at a "higher level."
+    2. JSX translates the XML style code of React into actual JavaScript, which just
+        allows us to write more readable code as it would be in html or xml
+    3. Comments are created after receiving data in the CommentForm in json format
+        which is then passed down through to the comment which updates its state
+        to receive the data.
+    4. Props are immutable, while state is mutable. This distinction matters because
+        we can change the state of a comment to give it its new data, but we don't
+        want to change the structure of a comment.
+
+B)  1. Adding a new comment did not show up when I did so in the json file, but
+        deleting a comment in the json file deleated that comment in the browser view.
+        When the data is deleated it deleated the comment becuase they are linked,
+        but adding a new comment through json does not ask react to actually make a new
+        comment and add it to the DOM.
+    2. It does not call render because it passes the data to the CommentList, which
+        will render. We don't want the CommentBox to rerender the entire time, just
+        the elements that need to be rerendered.
+    3. Components should always represent the state of the view becuase they are linked,
+        the components make up the view, so they should be consistent.
+    4. Optimism is not foolish here, as the server is quite likely to accept the new
+        comment, and it makes the page appear more like a true SPA. The comment may be
+        taken down again if there is an error pretty quickly too, so the benefit far
+        outweighs the potential harmfulness.
