@@ -29,7 +29,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
 //connect to mongoDB database
-MongoClient.connect('mongodb://cs336:Bjarne@ds053808.mlab.com:53808/srs27_cs336', function (err, dbConnection) {
+MongoClient.connect('mongodb://cs336:PASSWORD@ds053808.mlab.com:53808/srs27_cs336', function (err, dbConnection) {
   if (err) throw err;
 
   db = dbConnection;
