@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>People</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <script src="scripts/addPerson.js"></script>
+    <p> <em>Please enter the data for the new person and then click submit<em/> <p/>
+    <form action="/forms" method="post">
+  	    <div>
+  	        <label for="Id">ID:</label>
+  	        <input type="text" id="Id" name="userId" />
+  	    </div>
+  	    <div>
+  	        <label for="first">First Name:</label>
+  	        <input type="text" id="first" name="firstName" />
+  	    </div>
+        <div>
+            <label for="last">Last Name:</label>
+            <input type="text" id="last" name="lastName" />
+        </div>
+        <div>
+            <label for="sDate">Start-Date:</label>
+            <input type="text" id="sDate" name="startDate" />
+        </div>
+
+
+  	    <div class="button">
+  	        <button type="submit">Submit</button>
+  	    </div>
+  	</form>
+<!--    <p>ID: <input type="text" name="userId"></p>
+    <p>First Name: <input type="text" name="firstName"></p>
+    <p>Last Name: <input type="text" name="lastName"></p>
+    <p>Start-Date: <input type="text" name="startDate"></p>
+    <button>Submit</button> -->
+  </body>
+</html>
