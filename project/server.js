@@ -48,23 +48,26 @@ app.get('/api/links', function(req, res) {
       });
 });
 
-/*
+
 app.post('/api/links', function(req, res) {
     var collection = db.collection('links');
 
     //make a new link based on data pulled from virtual DOM
-    var newComment = {
+    var newLink = {
+    //id given as the current date, alsocan be used to help generate statistics
       _id: Date.now(),
-      author: req.body.author,
-      text: req.body.text,
+      link: req.body.link,
+      nickName: req.body.nickName,
+      lastVisited: Date.now(),
+      tag1: req.body.tag1,
     };
 
-    collection.insert(newComment, function(err, result) {
+    collection.insert(newLink, function(err, result) {
       assert.equal(err, null);
       res.json(result);
     });
 });
-*/
+
 
 app.listen(app.get('port'), function() {
   console.log('Server started: http://localhost:' + app.get('port') + '/');

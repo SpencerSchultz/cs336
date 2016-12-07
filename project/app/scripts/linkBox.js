@@ -18,6 +18,25 @@ module.exports = React.createClass({
       }.bind(this)
     });
   },
+  handleLinkSubmit: function(link) {
+    var links = this.state.data;
+    link._id = Date.now();
+    var newLinks = links.concat([link]);
+    this.setState({data: newLinks});
+    $.ajax({
+      url: this.props.url,
+      dataType: 'json',
+      type: 'POST',
+      data: link,
+      success: function(data) {
+        this.setState({data: data});
+      }.bind(this),
+      error: function(xhr, status, err) {
+        this.setState({data: links});
+        console.error(this.props.url, status, err.toString());
+      }.bind(this)
+    });
+  },
   getInitialState: function() {
     return {data: []};
   },
@@ -28,7 +47,8 @@ module.exports = React.createClass({
   render: function() {
     return (
       <div className="linkBox">
-        <LinkForm/>
+        <h1>Link DB</h1>
+        <LinkForm onLinkSubmit={this.handleLinkSubmit}/>
         <TagOrderedList data={this.state.data} />
       </div>
     );
