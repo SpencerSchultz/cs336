@@ -3,6 +3,7 @@ import $ from 'jquery';
 
 import TagOrderedList from './tagOrderedList.js';
 import LinkForm from './linkForm.js';
+import FilterBar from './filterBar.js';
 
 module.exports = React.createClass({
   loadLinks: function() {
@@ -17,6 +18,11 @@ module.exports = React.createClass({
         console.error(this.props.url, status, err.toString());
       }.bind(this)
     });
+  },
+  handleFilterUpdate: function(value) {
+    this.setState({
+      filterText: value
+    })
   },
   handleLinkSubmit: function(link) {
     var links = this.state.data;
@@ -38,7 +44,10 @@ module.exports = React.createClass({
     });
   },
   getInitialState: function() {
-    return {data: []};
+    return {
+      data: [],
+      filterText: ''
+    };
   },
   componentDidMount: function() {
     this.loadLinks();
@@ -49,7 +58,14 @@ module.exports = React.createClass({
       <div className="linkBox">
         <h1>Link DB</h1>
         <LinkForm onLinkSubmit={this.handleLinkSubmit}/>
-        <TagOrderedList data={this.state.data} />
+        <FilterBar
+          filterVal={this.state.filterText}
+          handleFilterUpdate={this.handleFilterUpdate}
+        />
+        <TagOrderedList
+          data={this.state.data}
+          filter={this.state.filterText}
+        />
       </div>
     );
   }
