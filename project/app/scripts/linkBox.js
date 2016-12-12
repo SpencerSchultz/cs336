@@ -5,10 +5,12 @@ import TagOrderedList from './tagOrderedList.js';
 import LinkForm from './linkForm.js';
 import FilterBar from './filterBar.js';
 
+import { API_URL } from './global';
+
 module.exports = React.createClass({
   loadLinks: function() {
     $.ajax({
-      url: this.props.url,
+      url: API_URL,
       dataType: 'json',
       cache: false,
       success: function(data) {
@@ -30,7 +32,7 @@ module.exports = React.createClass({
     var newLinks = links.concat([link]);
     this.setState({data: newLinks});
     $.ajax({
-      url: this.props.url,
+      url: API_URL,
       dataType: 'json',
       type: 'POST',
       data: link,

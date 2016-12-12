@@ -19,10 +19,11 @@ var MongoClient = require('mongodb').MongoClient;
 var assert = require('assert');
 
 var db;
+var APP_PATH = path.join(__dirname, 'dist');
 
 app.set('port', (process.env.PORT || 3000));
 
-app.use('/', express.static(path.join(__dirname, 'dist')));
+app.use('/', express.static(APP_PATH));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
@@ -68,6 +69,41 @@ app.post('/api/links', function(req, res) {
     });
 });
 
+app.get('/api/links/:id', function(req, res) {
+    db.collection('links').find({"id": Number(req.params._id)}).toArray(function(err, docs) {
+        if (err) throw err;
+        res.json(docs);
+    });
+});
+
+app.put('/api/links/:id', function(req, res) {
+    var updateId = Number(req.params._id);
+    var update = req.body;
+    db.collection('links').updateOne(
+        { _id: updateId },
+        { $set: update },
+        function(err, result) {
+            if (err) throw err;
+            db.collection('links').find({}).toArray(function(err, docs) {
+                if (err) throw err;
+                res.json(docs);
+            });
+        });
+});
+
+app.delete('/api/links/:id', function(req, res) {
+    db.collection('links').deleteOne(
+        {'id': Number(req.params._id)},
+        function(err, result) {
+            if (err) throw err;
+            db.collection('links').find({}).toArray(function(err, docs) {
+                if (err) throw err;
+                res.json(docs);
+            });
+        });
+});
+
+app.use('*', express.static(APP_PATH));
 
 app.listen(app.get('port'), function() {
   console.log('Server started: http://localhost:' + app.get('port') + '/');
