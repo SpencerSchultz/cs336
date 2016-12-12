@@ -5,7 +5,7 @@ import TagOrderedList from './tagOrderedList.js';
 import LinkForm from './linkForm.js';
 import FilterBar from './filterBar.js';
 
-import { API_URL } from './global';
+import { API_URL, POLL_INTERVAL } from './global';
 
 module.exports = React.createClass({
   loadLinks: function() {
@@ -17,7 +17,7 @@ module.exports = React.createClass({
         this.setState({data: data});
       }.bind(this),
       error: function(xhr, status, err) {
-        console.error(this.props.url, status, err.toString());
+        console.error(API_URL, status, err.toString());
       }.bind(this)
     });
   },
@@ -41,7 +41,7 @@ module.exports = React.createClass({
       }.bind(this),
       error: function(xhr, status, err) {
         this.setState({data: links});
-        console.error(this.props.url, status, err.toString());
+        console.error(API_URL, status, err.toString());
       }.bind(this)
     });
   },
@@ -53,7 +53,7 @@ module.exports = React.createClass({
   },
   componentDidMount: function() {
     this.loadLinks();
-    setInterval(this.loadLinks, this.props.pollInterval);
+    setInterval(this.loadLinks, POLL_INTERVAL);
   },
   render: function() {
     return (
